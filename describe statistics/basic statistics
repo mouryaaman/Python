@@ -1,0 +1,23 @@
+#impoting libs
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+#creating data frame
+df1 = [1,2,3,4,5]
+df2 = [6,7,8,9,10]
+
+#using describe funcation
+stats.describe(df1)
+
+# crating def funcation for re use of code
+def dstats(a):
+    print(stats.describe(a))
+    print(np.var(a))
+    print(np.median(a))
+    print(np.sqrt(a))
+    
+#getting result
+dstats(df1)
+dstats(df2)
+
