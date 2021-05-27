@@ -1,0 +1,45 @@
+#importing libs
+import numpy as np
+import pandas as pd
+from scipy import stats
+import seaborn as sns
+
+
+#importinfg data set
+data = pd.read_csv('G:\Jupyter\Coursera Course Dataset\coursea_data.csv')
+
+#checking data
+data.head()
+
+data.shape
+
+data.isnull().sum()
+
+data.columns
+
+#droping coloumn
+data = data.drop(columns=['id','course_title', 'course_organization', 'course_Certificate_type','course_difficulty'])
+
+#summary statistics
+data.describe()
+
+#correlation
+colreation = data.corr()
+
+#anaysing and visualisation the data 
+sns.heatmap(colreation, xticklabels = colreation.columns, yticklabels = colreation.columns, annot = True)
+
+sns.pairplot(data)
+
+sns.relplot(x = 'course_rating', y = 'course_students_enrolled',hue= 'course_students_enrolled', data=data)
+
+sns.relplot(x = 'course_rating', y = 'course_students_enrolled',hue= 'course_rating', data=data)
+
+sns.distplot(data['course_rating'])
+
+sns.distplot(data['course_students_enrolled'])
+
+
+
+
+
